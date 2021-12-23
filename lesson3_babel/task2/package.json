@@ -1,20 +1,32 @@
 {
-  "name": "task1",
+  "name": "task2",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:scripts": "babel ./src --out-dir=./dist"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "build:styles": "sass ./src/styles/index.scss ./dist/styles/index.css",
+    "copy:html": "copy src\\index.html dist\\index.html",
+    "transpile:scripts": "babel ./src --out-dir=./temp",
+    "build:scripts": "webpack ./temp/scripts/index.js -p",
+    "clean": "rmdir /s  dist ",
+    "build": "npm-run-all transpile:scripts  build:* copy:*"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/cli": "^7.16.0",
-    "@babel/core": "^7.16.5",
-    "@babel/preset-env": "7.16.5"
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "jest": "^27.2.1",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.42.1"
   },
   "dependencies": {
-    "core-js": "^3.20.1"
+    "core-js": "^3.18.0",
+    "webpack": "^5.54.0",
+    "webpack-cli": "^4.8.0"
   }
 }
