@@ -40,8 +40,6 @@ module.exports = (env, argv) => {
       ],
     },
     plugins: [
-      new webpack.ProgressPlugin(),
-      new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
         template: './src/index.html',
       }),
@@ -63,5 +61,3 @@ module.exports = (env, argv) => {
 
   return config;
 };
-
-export default module.exports;
